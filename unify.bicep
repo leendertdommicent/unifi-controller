@@ -3,6 +3,7 @@ param Location string = 'westeurope'
 
 param RegistryUsername string
 
+param StorageName string
 param ContainerInstanceName string
 
 @secure()
@@ -11,7 +12,7 @@ param RegistryPassword string
 var VolumeName = 'data-volume'
 
 resource StorageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: 'ldounifistorage'
+  name: StorageName
   location: Location
   kind: 'StorageV2'
   sku: {
